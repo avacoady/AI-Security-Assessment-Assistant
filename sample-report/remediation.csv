@@ -1,0 +1,5 @@
+Control,Status,Priority,Suggested owner,Effort,Proposed action,Follow-up question,Review status
+Multifactor authentication,documented_gap,High,IT administrator,Medium,Confirm and enforce MFA for remote and privileged access; track exceptions.,Provide MFA enforcement settings and an exception register.,Pending human review
+Administrator access,documented_gap,High,IT lead,Medium,Use individually assigned admin accounts and review least privilege.,Provide a privileged-account inventory and ownership records.,Pending human review
+Employee offboarding,supported,Triage pending,HR and IT,Low,Provide a recent completed offboarding ticket and account-disable timestamps.,Provide a recent completed offboarding ticket and account-disable timestamps.,Pending human review
+Periodic access reviews,unverified,Triage pending,System owners,Medium,"Who reviews access, how often, and can you supply the latest completed review?","Who reviews access, how often, and can you supply the latest completed review?",Pending human review
