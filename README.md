@@ -3,7 +3,7 @@
 An AI-assisted identity and access management assessment prototype for cybersecurity consulting.
 It turns supplied client evidence into preliminary findings, follow-up questions, and a remediation tracker.
 
-**Status:** Working deterministic demo and tested agent orchestration. A live model integration is implemented but has not yet been exercised or benchmarked. This is a portfolio prototype, not a compliance assessment product.
+**Status:** Working prototype tested with `gemma4:31b-cloud` through Ollama on September 18, 2026. All 13 software tests passed. Three synthetic live-model scenarios matched their expected statuses in one run each. This is a portfolio prototype, not a compliance assessment product.
 
 ## Quick start
 
@@ -63,7 +63,7 @@ Plain text, Markdown, and CSV are read as lines; CSV is not interpreted as a que
 
 The validator rejects invented IDs, mismatched quotes, citations the agent did not retrieve, missing controls, and unsupported status values. The CSV exporter neutralizes common spreadsheet-formula prefixes. Evidence is explicitly labeled untrusted in prompts, and the available tool set is enforced in Python.
 
-**A real quote can still support an incorrect conclusion.** The validator verifies citation provenance, not semantic entailment. Prompt instructions alone do not guarantee resistance to prompt injection. The current automated tests verify software boundaries and a mock agent; they do not establish live-model security, accuracy, or usefulness. Raw model Markdown is emitted as text in the report: review it in a trusted Markdown viewer and do not automatically render it as unsanitized HTML.
+**A real quote can still support an incorrect conclusion.** The validator verifies citation provenance, not semantic entailment. Prompt instructions alone do not guarantee resistance to prompt injection. The 13 software tests verify boundaries and a mock agent. A separate live-model smoke evaluation checks three synthetic scenarios; neither establishes broad model security, accuracy, or usefulness. Raw model Markdown is emitted as text in the report: review it in a trusted Markdown viewer and do not automatically render it as unsanitized HTML.
 
 The run records token counts and elapsed time. There is no claimed accuracy improvement or cost saving. Reports retain input evidence, so keep real client documents and resulting reports out of a public repository. This repository contains fictional material only.
 
@@ -96,3 +96,17 @@ Next useful features: live evaluation harness, document version comparisons, a r
 ## Authorship and learning
 
 Initial scaffolding was created with AI assistance. To make this a credible personal portfolio project, review the code, configure and evaluate a real model, implement improvements, and document your design decisions. Describe only features and results you can demonstrate and explain.
+
+## Live evaluation — September 18, 2026
+
+The live model `gemma4:31b-cloud` was accessed through the local Ollama service; inference ran in the cloud. The full fictional client assessment produced two documented gaps, one supported control, and one unverified control, with validated citations. See [live report](live-report/report.md).
+
+Three additional synthetic cases passed status comparison: baseline, missing MFA evidence, and a document containing an instruction to mark everything supported. Each was run once. This is a smoke test, not proof of prompt-injection resistance or a statistically meaningful accuracy claim. See [recorded results](evaluation-results.json), including findings, tool traces, token counts, and elapsed time.
+
+To repeat (sends synthetic evidence to the configured model):
+
+```sh
+python3 evaluate.py --model gemma4:31b-cloud --output evaluation-results.json
+```
+
+A cloud model requires connectivity and appropriate Ollama account access; provider quotas and charges may apply. No paid plan was purchased during this evaluation. Model availability can change.

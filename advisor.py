@@ -246,7 +246,7 @@ def main():
         else:
             backend = Ollama(args.model)
             findings, trace = run_agent(evidence, backend)
-        metadata = {'mode': 'deterministic demo (no AI)' if args.demo else 'local AI',
+        metadata = {'mode': 'deterministic demo (no AI)' if args.demo else 'AI via Ollama (cloud-backed)' if 'cloud' in args.model else 'AI via Ollama',
                     'model': args.model, 'seconds': round(time.monotonic() - started, 3),
                     'input_tokens': backend.input_tokens if backend else 0,
                     'output_tokens': backend.output_tokens if backend else 0,
