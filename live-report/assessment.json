@@ -1,0 +1,207 @@
+{
+  "metadata": {
+    "mode": "AI via Ollama (cloud-backed)",
+    "model": "gemma4:31b-cloud",
+    "seconds": 3.0,
+    "input_tokens": 3004,
+    "output_tokens": 448,
+    "review_status": "pending",
+    "model_quality_evaluated": false
+  },
+  "findings": [
+    {
+      "control": "MFA",
+      "status": "documented_gap",
+      "rationale": "Optional MFA for remote access increases the risk of unauthorized access via credential theft.",
+      "citations": [
+        {
+          "id": "cabce571ee7e43dd",
+          "quote": "MFA is optional for remote access."
+        }
+      ],
+      "question": "Is there a technical configuration that enforces MFA for specific high-risk remote access paths?"
+    },
+    {
+      "control": "ADMIN",
+      "status": "documented_gap",
+      "rationale": "Shared administrator accounts prevent individual accountability and increase the risk of unauthorized changes.",
+      "citations": [
+        {
+          "id": "7568735f69a4095b",
+          "quote": "IT staff share one administrator account."
+        }
+      ],
+      "question": "Can the organization provide a list of individual admin accounts currently in use?"
+    },
+    {
+      "control": "OFFBOARD",
+      "status": "supported",
+      "rationale": "The policy defines a process for timely account removal with HR as the trigger and IT as the owner.",
+      "citations": [
+        {
+          "id": "ab72f6fca893b4f3",
+          "quote": "HR notifies IT before departure; IT disables accounts by the end of the final working day."
+        }
+      ],
+      "question": "Can you provide a sample of offboarding tickets showing the time between HR notification and account disablement?"
+    },
+    {
+      "control": "REVIEW",
+      "status": "unverified",
+      "rationale": "No documentation or responses were provided regarding the performance of periodic access reviews.",
+      "citations": [
+        {
+          "id": "b3b3f4f5a1bc2a20",
+          "quote": "Access-review documentation was not supplied."
+        },
+        {
+          "id": "1c59cbd72c4a41ac",
+          "quote": "access reviews,Awaiting response from the system owners"
+        }
+      ],
+      "question": "Please provide the most recent access review logs and the policy defining the review frequency."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "b8f140c5540debfd",
+      "source": "access-policy.md",
+      "line": 1,
+      "text": "# Cedar Works \u2014 fictional client access policy"
+    },
+    {
+      "id": "cabce571ee7e43dd",
+      "source": "access-policy.md",
+      "line": 2,
+      "text": "MFA is optional for remote access."
+    },
+    {
+      "id": "7568735f69a4095b",
+      "source": "access-policy.md",
+      "line": 3,
+      "text": "IT staff share one administrator account."
+    },
+    {
+      "id": "ab72f6fca893b4f3",
+      "source": "access-policy.md",
+      "line": 4,
+      "text": "HR notifies IT before departure; IT disables accounts by the end of the final working day."
+    },
+    {
+      "id": "b3b3f4f5a1bc2a20",
+      "source": "evidence-register.txt",
+      "line": 1,
+      "text": "Access-review documentation was not supplied."
+    },
+    {
+      "id": "1d2aa41c8c16fceb",
+      "source": "evidence-register.txt",
+      "line": 2,
+      "text": "All material in this folder describes a fictional training client."
+    },
+    {
+      "id": "3dd5a11bdc657cb5",
+      "source": "questionnaire.csv",
+      "line": 1,
+      "text": "area,response"
+    },
+    {
+      "id": "1c59cbd72c4a41ac",
+      "source": "questionnaire.csv",
+      "line": 2,
+      "text": "access reviews,Awaiting response from the system owners"
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "tool": "list_documents",
+      "arguments": {},
+      "result": [
+        "access-policy.md",
+        "evidence-register.txt",
+        "questionnaire.csv"
+      ]
+    },
+    {
+      "step": 2,
+      "tool": "read_document",
+      "arguments": {
+        "source": "access-policy.md"
+      },
+      "result": [
+        {
+          "id": "b8f140c5540debfd",
+          "source": "access-policy.md",
+          "line": 1,
+          "text": "# Cedar Works \u2014 fictional client access policy"
+        },
+        {
+          "id": "cabce571ee7e43dd",
+          "source": "access-policy.md",
+          "line": 2,
+          "text": "MFA is optional for remote access."
+        },
+        {
+          "id": "7568735f69a4095b",
+          "source": "access-policy.md",
+          "line": 3,
+          "text": "IT staff share one administrator account."
+        },
+        {
+          "id": "ab72f6fca893b4f3",
+          "source": "access-policy.md",
+          "line": 4,
+          "text": "HR notifies IT before departure; IT disables accounts by the end of the final working day."
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "tool": "read_document",
+      "arguments": {
+        "source": "evidence-register.txt"
+      },
+      "result": [
+        {
+          "id": "b3b3f4f5a1bc2a20",
+          "source": "evidence-register.txt",
+          "line": 1,
+          "text": "Access-review documentation was not supplied."
+        },
+        {
+          "id": "1d2aa41c8c16fceb",
+          "source": "evidence-register.txt",
+          "line": 2,
+          "text": "All material in this folder describes a fictional training client."
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "tool": "read_document",
+      "arguments": {
+        "source": "questionnaire.csv"
+      },
+      "result": [
+        {
+          "id": "3dd5a11bdc657cb5",
+          "source": "questionnaire.csv",
+          "line": 1,
+          "text": "area,response"
+        },
+        {
+          "id": "1c59cbd72c4a41ac",
+          "source": "questionnaire.csv",
+          "line": 2,
+          "text": "access reviews,Awaiting response from the system owners"
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "action": "finish",
+      "validation": "passed"
+    }
+  ]
+}
